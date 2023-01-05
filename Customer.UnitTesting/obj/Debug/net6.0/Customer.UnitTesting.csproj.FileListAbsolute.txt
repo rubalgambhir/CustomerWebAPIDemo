@@ -1,0 +1,5 @@
+C:\Project\WebApiDemo-main\WebApiDemo-main\Customer.UnitTesting\obj\Debug\net6.0\Customer.UnitTesting.csproj.AssemblyReference.cache
+C:\Project\WebApiDemo-main\WebApiDemo-main\Customer.UnitTesting\obj\Debug\net6.0\Customer.UnitTesting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Project\WebApiDemo-main\WebApiDemo-main\Customer.UnitTesting\obj\Debug\net6.0\Customer.UnitTesting.AssemblyInfoInputs.cache
+C:\Project\WebApiDemo-main\WebApiDemo-main\Customer.UnitTesting\obj\Debug\net6.0\Customer.UnitTesting.AssemblyInfo.cs
+C:\Project\WebApiDemo-main\WebApiDemo-main\Customer.UnitTesting\obj\Debug\net6.0\Customer.UnitTesting.csproj.CoreCompileInputs.cache
