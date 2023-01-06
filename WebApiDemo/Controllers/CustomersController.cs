@@ -134,18 +134,52 @@ namespace WebApiDemo.Controllers
         }
 
 
-        [ActionName("DeleteCustomer")]
-        public void DeleteCustomerByID(int id)
+   //     [ActionName("DeleteCustomer")]
+        //public void DeleteCustomerByID(int id)
+        //{
+        //    SqlConnection myConnection = new SqlConnection();
+        //    myConnection.ConnectionString = ConfigurationManager.AppSettings["DefaultConnection"];
+        //    SqlCommand sqlCmd = new SqlCommand();
+        //    sqlCmd.CommandType = CommandType.Text;
+        //    sqlCmd.CommandText = "delete from Customer where Customer_id=" + id + "";
+        //    sqlCmd.Connection = myConnection;
+        //    myConnection.Open();
+        //    int rowDeleted = sqlCmd.ExecuteNonQuery();
+        //    myConnection.Close();
+        //}
+
+
+        [HttpGet]
+        [ActionName("GetCustomerByID")]
+        public Customer GetCustomersById(int id)
+        // public IHttpActionResult GetCustomersById(int id)
         {
+            //return listEmp.First(e => e.ID == id);
+            SqlDataReader reader = null;
             SqlConnection myConnection = new SqlConnection();
+
             myConnection.ConnectionString = ConfigurationManager.AppSettings["DefaultConnection"];
+
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "delete from Customer where Customer_id=" + id + "";
+            sqlCmd.CommandText = "Select * from Customer where Customer_id=" + id + "";
+
             sqlCmd.Connection = myConnection;
             myConnection.Open();
-            int rowDeleted = sqlCmd.ExecuteNonQuery();
+            reader = sqlCmd.ExecuteReader();
+            Customer cust = null;
+            while (reader.Read())
+            {
+                cust = new Customer();
+                cust.CustomerId = Convert.ToInt32(reader.GetValue(1));
+                cust.CustomerName = reader.GetValue(2).ToString();
+                cust.CustomerAddress = reader.GetValue(3).ToString();
+                cust.age = Convert.ToInt32(reader.GetValue(4));
+                // emp.ManagerId = Convert.ToInt32(reader.GetValue(2));
+            }
+            return cust;
             myConnection.Close();
+
         }
 
 
